@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石鎚黒茶 | 至高の推し発酵茶</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 全般的なリセットと共通スタイル */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', Georgia, serif;
+            background-color: #fcfbf7; /* 品のあるオフホワイト（薄いベージュ） */
+            color: #2c1d11;           /* メインカラー：深いダークブラウン */
+            line-height: 1.8;
+            letter-spacing: 0.08em;    /* 文字間隔を広げて優雅さを演出 */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* スムーズスクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* レイアウトコンテナ */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0; /* 贅沢な余白 */
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #2c1d11;
+            letter-spacing: 0.15em;
+            margin-bottom: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #c5a059; /* アクセントカラー：上品なゴールド */
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 60px;
+        }
+
+        /* メインビジュアル（ヘッダー） */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(44, 29, 17, 0.7), rgba(44, 29, 17, 0.85)), 
+                        url('https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: #fcfbf7;
+            padding: 0 20px;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+            color: #c5a059;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 1px;
+            background-color: #c5a059;
+            margin: 30px auto;
+        }
+
+        .hero-catch {
+            font-size: 1.2rem;
+            letter-spacing: 0.15em;
+            font-weight: 300;
+        }
+
+        /* 推しプロファイル (Profile) */
+        .profile-card {
+            background-color: #ffffff;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(44, 29, 17, 0.04);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .profile-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .profile-table tr {
+            border-bottom: 1px solid rgba(44, 29, 17, 0.1);
+        }
+
+        .profile-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .profile-table th {
+            width: 25%;
+            padding: 20px 10px;
+            font-weight: 500;
+            color: #c5a059;
+        }
+
+        .profile-table td {
+            padding: 20px 10px;
+            font-size: 0.95rem;
+        }
+
+        /* 推しポイント (Appeal Points) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 50px 35px;
+            border-radius: 4px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(44, 29, 17, 0.04);
+            border-top: 3px solid #c5a059;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-num {
+            font-size: 2rem;
+            color: rgba(197, 160, 89, 0.3);
+            font-family: Georgia, serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #2c1d11;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #554433;
+            text-align: justify;
+        }
+
+        /* 推しの軌跡 (History) */
+        .bg-dark {
+            background-color: #2c1d11;
+            color: #fcfbf7;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-light {
+            color: #fcfbf7;
+        }
+
+        .text-gold {
+            color: #c5a059;
+        }
+
+        .timeline {
+            margin-top: 50px;
+            position: relative;
+            text-align: left;
+            padding-left: 30px;
+            border-left: 1px solid rgba(197, 160, 89, 0.4);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background-color: #c5a059;
+        }
+
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #c5a059;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 0.95rem;
+            color: #dfd5cb;
+            text-align: justify;
+        }
+
+        /* 推し活のススメ (How to Enjoy) */
+        .enjoy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .enjoy-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(44, 29, 17, 0.04);
+            border: 1px solid rgba(44, 29, 17, 0.05);
+        }
+
+        .enjoy-box h3 {
+            font-size: 1.3rem;
+            color: #2c1d11;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #c5a059;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .enjoy-box ul {
+            list-style: none;
+        }
+
+        .enjoy-box li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .enjoy-box li span {
+            background-color: #c5a059;
+            color: #ffffff;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            font-family: Georgia, serif;
+        }
+
+        .enjoy-note {
+            font-size: 0.85rem;
+            color: #887766;
+            margin-top: 20px;
+        }
+
+        .enjoy-box strong {
+            color: #c5a059;
+            font-weight: 500;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #1e130a;
+            color: rgba(252, 251, 247, 0.6);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* レスポンシブ対応（メディアクエリ） */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-catch {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .profile-table th, .profile-table td {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .profile-table th {
+                padding-bottom: 0;
+            }
+
+            .profile-card {
+                padding: 25px;
+            }
+
+            .enjoy-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p class="hero-sub">愛媛が誇る、幻の二段発酵茶</p>
+            <h1>石鎚黒茶</h1>
+            <div class="hero-line"></div>
+            <p class="hero-catch">独自の二段発酵が醸す、至高 of 琥珀色。</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="profile" class="section">
+            <h2 class="section-title">推しプロファイル</h2>
+            <p class="section-subtitle">Profile</p>
+            
+            <div class="profile-card">
+                <table class="profile-table">
+                    <tr>
+                        <th>名称</th>
+                        <td>石鎚黒茶（いしづちくろちゃ）</td>
+                    </tr>
+                    <tr>
+                        <th>分類</th>
+                        <td>後発酵茶（プーアル茶などと同じ、微生物で発酵させるお茶）</td>
+                    </tr>
+                    <tr>
+                        <th>出身地</th>
+                        <td>愛媛県西条市（霊峰・石鎚山の麓）</td>
+                    </tr>
+                    <tr>
+                        <th>製法</th>
+                        <td>糸状菌による「好気性発酵」× 乳酸菌による「嫌気性発酵」の独自の二段発酵</td>
+                    </tr>
+                    <tr>
+                        <th>水色</th>
+                        <td>透明感のある美しい琥珀色</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="appeal" class="section">
+            <h2 class="section-title">推せる理由</h2>
+            <p class="section-subtitle">Appeal Points</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h3>日本に4つしかない希少性</h3>
+                    <p>日本国内に存在する「後発酵茶」は、わずか4つ（阿波番茶、碁石茶、阿波石鎚黒茶、そしてこの石鎚黒茶など）しかありません。世界的に見ても極めて珍しい独自の製法で作られる、まさに「お茶界の至宝」です。</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h3>手仕事が生む爽やかな酸味</h3>
+                    <p>職人の手で一枚一枚丁寧に揉まれ、二段階の発酵を経て生まれるその味わいは唯一無二。独特のフルーティーで爽やかな酸味と、後味に広がるほのかな旨味のバランスが、飲む者を一瞬で虜にします。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="section bg-dark">
+            <div class="section-inner">
+                <h2 class="section-title text-light">推しの軌跡</h2>
+                <p class="section-subtitle text-gold">History</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">古の時代</div>
+                        <p class="timeline-text">弘法大師（空海）が石鎚山での修行中に伝えたという伝説が残る、深い歴史を持つ伝統茶。長年、西条の地でひっそりと守り継がれてきました。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">途絶えかけた歴史</div>
+                        <p class="timeline-text">時代の移り変わりとともに生産者が激減。一時はたった「1軒」の農家のみが技術を保持する状態となり、絶滅の危機に瀕しました。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">現代への復活劇</div>
+                        <p class="timeline-text">「この素晴らしいお茶を未来へ残したい」という地元の情熱により、市民や技術保存会が立ち上がります。伝統の技が奇跡的に見直され、現代に見事な復活を果たしました。このエモーショナルな物語を知ると、一杯の重みが変わります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="enjoy" class="section">
+            <h2 class="section-title">推し活のススメ</h2>
+            <p class="section-subtitle">How to Enjoy</p>
+            
+            <div class="enjoy-container">
+                <div class="enjoy-box">
+                    <h3>至高の淹れ方</h3>
+                    <ul>
+                        <li><span>1</span>急須に茶葉を3〜5g入れます。</li>
+                        <li><span>2</span>完全に沸騰した熱湯（150〜200ml）を注ぎます。</li>
+                        <li><span>3</span>約1分から1分半、じっくりと琥珀色に染まるのを待ちます。</li>
+                    </ul>
+                    <p class="enjoy-note">※二番煎じ、三番煎じまでしっかりと味わいの変化を楽しめます。</p>
+                </div>
+                
+                <div class="enjoy-box">
+                    <h3>至福のペアリング</h3>
+                    <p>石鎚黒茶の持つ爽やかな乳酸系の酸味は、和菓子はもちろんのこと、実は洋菓子とも相性抜群です。</p>
+                    <p>特に<strong>「チョコレート」</strong>や<strong>「チーズケーキ」</strong>と合わせると、お互いの濃厚さと酸味が引き立ち、極上のティータイムが完成します。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 石鎚黒茶 推し紹介ファンサイト. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
